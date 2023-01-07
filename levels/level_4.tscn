@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://412ylh4vede6"]
+[gd_scene load_steps=6 format=3 uid="uid://ca0p2uhe53ikf"]
 
-[ext_resource type="Texture2D" uid="uid://j5qgorxyhtpu" path="res://tilemaps/tiny_dungeon_tilemap.png" id="1_scd2j"]
-[ext_resource type="Texture2D" uid="uid://dyv8346e4aro4" path="res://tilemaps/pixel_farm_tilemap.png" id="2_kjmml"]
+[ext_resource type="Texture2D" uid="uid://j5qgorxyhtpu" path="res://tilemaps/tiny_dungeon_tilemap.png" id="1_8l5rv"]
+[ext_resource type="Texture2D" uid="uid://dyv8346e4aro4" path="res://tilemaps/pixel_farm_tilemap.png" id="2_qebn1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri2kp"]
-texture = ExtResource("1_scd2j")
+texture = ExtResource("1_8l5rv")
 separation = Vector2i(1, 1)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -734,7 +734,7 @@ separation = Vector2i(1, 1)
 11:10/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oaf7x"]
-texture = ExtResource("2_kjmml")
+texture = ExtResource("2_qebn1")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
@@ -1320,4 +1320,4 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(-1, 131074, 7, -65537, 196610, 5, 65535, 196610, 5, -196607, 196610, 5, -4, 458754, 9, -65533, 524290, 9, -131067, 262146, 3, 5, 262146, 3, -327673, 262146, 3, 262147, 262146, 3, -262145, 262146, 3, -262152, 262146, 3, -131082, 262146, 3, 327670, 196610, 5, 196605, 393218, 9, 196615, 393218, 9, -196614, 393218, 9, -65544, 524290, 9, 196598, 458754, 10, 327672, 524290, 10, 196609, 524290, 10, 327678, 262146, 3, 196603, 262146, 3, 262138, 262146, 3, 262139, 196610, 5, -7, 196610, 5)
+layer_1/tile_data = PackedInt32Array(-1, 131074, 7, 131071, 458754, 9, -262137, 458754, 9, 327671, 458754, 9, 196616, 458754, 9, -65546, 262146, 3, -196617, 262146, 3, -327672, 262146, 3, 262152, 262146, 3, 196611, 262146, 3, 65541, 262146, 3, 327676, 262146, 3, 262138, 262146, 3, 196603, 262146, 3, -262147, 262146, 3, 327675, 196610, 5, 327672, 196610, 5, 65533, 196610, 5, -65535, 196610, 5, -131073, 196610, 5, -262143, 196610, 5, 262148, 524290, 9, -262141, 524290, 9, -131070, 393218, 10, -131078, 524290, 9, -196612, 393218, 9, 262139, 393218, 10, 196605, 458754, 10)
