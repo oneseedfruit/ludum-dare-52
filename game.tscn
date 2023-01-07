@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://06llghacb6lk"]
+[gd_scene load_steps=2 format=3 uid="uid://06llghacb6lk"]
 
-[ext_resource type="Script" path="res://managers/CollectibleManager.gd" id="1_57ebg"]
-[ext_resource type="PackedScene" uid="uid://dlejoe8cbtuua" path="res://collectible/collectible.tscn" id="2_bx7hp"]
 [ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player/player.tscn" id="4_hmvgr"]
-[ext_resource type="Script" path="res://managers/LevelManager.gd" id="5_3fx2o"]
 
 [node name="Game" type="Node2D"]
 
@@ -13,10 +10,3 @@ zoom = Vector2(3, 3)
 
 [node name="Player" parent="." instance=ExtResource("4_hmvgr")]
 position = Vector2(-8, -8)
-
-[node name="CollectibleManager" type="Node2D" parent="."]
-script = ExtResource("1_57ebg")
-mCollectiblePackedScene = ExtResource("2_bx7hp")
-
-[node name="LevelManager" type="Node2D" parent="."]
-script = ExtResource("5_3fx2o")
