@@ -1,3 +1,4 @@
+class_name Collectible
 extends Area2D
 
 
@@ -21,6 +22,7 @@ func _onCollisionEntered(body):
 	if body.get_script() == Player:
 		# TODO: add points
 		body.stopAt(position)
+		get_parent().collect(self)
 		queue_free()
 
 

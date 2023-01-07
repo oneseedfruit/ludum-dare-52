@@ -8,6 +8,22 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Area2D",
+"class": &"Collectible",
+"language": &"GDScript",
+"path": "res://collectible/collectible.gd"
+}, {
+"base": "RigidBody2D",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://player/player.gd"
+}]
+_global_script_class_icons={
+"Collectible": "",
+"Player": ""
+}
+
 [application]
 
 config/name="Monkey Business"

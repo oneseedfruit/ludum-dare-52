@@ -1,8 +1,8 @@
 class_name Player
 extends RigidBody2D
 
-# Movement variables
-@export var mMoveSpeed : float = 100
+# Movement variables (temporarily limit to 250 because too huge will not stop at target)
+@export_range(0, 250) var mMoveSpeed : float = 100
 @onready var mRay = $RayCast2D
 
 var mTileSize = 16
@@ -14,7 +14,7 @@ var mInputs = {
 }
 
 var mMoving = Vector2.ZERO
-
+var mTarget
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,6 +29,7 @@ func _physics_process(delta):
 		_snap_to_tile()
 
 	if mTarget != null and position.distance_squared_to(mTarget) < pow(delta * mMoveSpeed, 2):
+		position = mTarget
 		mTarget = null
 		mMoving = Vector2.ZERO
 		_snap_to_tile()
@@ -53,6 +54,7 @@ func _update_raycast():
 	mRay.target_position = targetPos
 	mRay.force_raycast_update()
 
-var mTarget
+
+# Make player stop at target position
 func stopAt(target):
 	mTarget = target
