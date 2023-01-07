@@ -36,7 +36,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _unhandled_input(event):
@@ -55,10 +55,6 @@ func move(dir):
 	if !mRay.is_colliding():
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", targetPos, mTilePerSec).set_trans(Tween.TRANS_LINEAR).as_relative()
-		tween.connect("tween_completed", func (): 
-			print("tween_completed")
-			move(dir)
-		)
 		tween.connect("finished", func (): 
 			move(dir)
 		)
