@@ -8,16 +8,6 @@
 
 config_version=5
 
-_global_script_classes=[{
-"base": "RigidBody2D",
-"class": &"Player",
-"language": &"GDScript",
-"path": "res://player/player.gd"
-}]
-_global_script_class_icons={
-"Player": ""
-}
-
 [application]
 
 config/name="Monkey Business"
