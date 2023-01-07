@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://06llghacb6lk"]
+[gd_scene load_steps=5 format=3 uid="uid://06llghacb6lk"]
 
 [ext_resource type="Script" path="res://managers/CollectibleManager.gd" id="1_57ebg"]
 [ext_resource type="PackedScene" uid="uid://dlejoe8cbtuua" path="res://collectible/collectible.tscn" id="2_bx7hp"]
-[ext_resource type="PackedScene" uid="uid://bxmg0e0yl3cgp" path="res://levels/level_1.tscn" id="3_lcdy2"]
 [ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player/player.tscn" id="4_hmvgr"]
-[ext_resource type="PackedScene" uid="uid://dhgkgl47mbf6w" path="res://levels/level_2.tscn" id="4_i14qt"]
 [ext_resource type="Script" path="res://managers/LevelManager.gd" id="5_3fx2o"]
-[ext_resource type="PackedScene" uid="uid://412ylh4vede6" path="res://levels/level_3.tscn" id="7_l8754"]
-[ext_resource type="PackedScene" uid="uid://ca0p2uhe53ikf" path="res://levels/level_4.tscn" id="8_quknd"]
 
 [node name="Game" type="Node2D"]
 
@@ -24,4 +20,3 @@ mCollectiblePackedScene = ExtResource("2_bx7hp")
 
 [node name="LevelManager" type="Node2D" parent="."]
 script = ExtResource("5_3fx2o")
-mLevels = [ExtResource("3_lcdy2"), ExtResource("4_i14qt"), ExtResource("7_l8754"), ExtResource("8_quknd")]
