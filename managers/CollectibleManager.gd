@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var tileMap = get_node("LevelTemplate/TileMap")
+	var tileMap = get_parent().get_node("LevelTemplate/TileMap")
 	var usedCells = tileMap.get_used_cells(mTileMapObjectLayer)
 	for cellCoord in usedCells:
 		var tileData = tileMap.get_cell_tile_data(mTileMapObjectLayer, cellCoord)
