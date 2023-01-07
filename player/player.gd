@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+
 # movement variable
 @export var mMoveSpeed : float = 100
 @onready var mRay = $RayCast2D
@@ -24,6 +25,7 @@ func _ready():
 	mTilePerSec = mTileSize / mMoveSpeed
 
 	# reset position to tile
+	position -= Vector2.ONE * mTileSize * 0.5
 	position = position.snapped(Vector2.ONE * mTileSize)
 	position += Vector2.ONE * mTileSize * 0.5
 

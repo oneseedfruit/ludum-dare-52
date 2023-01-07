@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0mjorqimwr8j"]
+[gd_scene load_steps=5 format=3 uid="uid://pqi26gm7e16t"]
 
-[ext_resource type="PackedScene" uid="uid://dn0v4xnnqm84l" path="res://level_template.tscn" id="1_edxwf"]
+[ext_resource type="PackedScene" uid="uid://bxmg0e0yl3cgp" path="res://level_template.tscn" id="1_edxwf"]
+[ext_resource type="Script" path="res://managers/CollectibleManager.gd" id="1_wtes0"]
 [ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player/player.tscn" id="2_onpur"]
+[ext_resource type="PackedScene" uid="uid://dlejoe8cbtuua" path="res://collectible/collectible.tscn" id="2_tv8fd"]
 
 [node name="Level01" type="Node2D"]
+script = ExtResource("1_wtes0")
+mCollectiblePackedScene = ExtResource("2_tv8fd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -12,4 +16,4 @@ zoom = Vector2(3, 3)
 [node name="LevelTemplate" parent="." instance=ExtResource("1_edxwf")]
 
 [node name="Player" parent="." instance=ExtResource("2_onpur")]
-position = Vector2(-26, -9)
+position = Vector2(8, -8)
