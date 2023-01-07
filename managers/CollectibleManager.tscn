@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://duab6eidl0on5"]
+
+[ext_resource type="Script" path="res://managers/CollectibleManager.gd" id="1_gwtg8"]
+[ext_resource type="PackedScene" uid="uid://dlejoe8cbtuua" path="res://collectible/collectible.tscn" id="2_sph0x"]
+
+[node name="CollectibleManager" type="Node"]
+script = ExtResource("1_gwtg8")
+mCollectiblePackedScene = ExtResource("2_sph0x")

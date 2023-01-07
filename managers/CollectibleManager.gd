@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 
 @export var mTileMapObjectLayer : int = 1
@@ -7,7 +7,7 @@ extends Node2D
 var mCollectibleList: Array[Collectible] = []
 
 func spawnCollectibles():
-	var tileMap = get_parent().get_node("LevelTemplate/TileMap")
+	var tileMap = get_node("/root/Game/LevelTemplate/TileMap")
 	if tileMap:
 		var usedCells = tileMap.get_used_cells(mTileMapObjectLayer)
 		for cellCoord in usedCells:
@@ -26,4 +26,4 @@ func spawnCollectibles():
 func collect(_collectible):
 	mCollectibleList.erase(_collectible)
 	if mCollectibleList.size() == 0:
-		get_parent().get_node("LevelManager").nextLevel()
+		get_node("/root/LevelManager").nextLevel()
