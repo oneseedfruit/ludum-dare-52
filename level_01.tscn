@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1aix5kj4sj25"]
+[gd_scene load_steps=3 format=3 uid="uid://c0mjorqimwr8j"]
 
 [ext_resource type="PackedScene" uid="uid://dn0v4xnnqm84l" path="res://level_template.tscn" id="1_edxwf"]
-[ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player.tscn" id="2_onpur"]
+[ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player/player.tscn" id="2_onpur"]
 
 [node name="Level01" type="Node2D"]
 
@@ -12,4 +12,4 @@ zoom = Vector2(3, 3)
 [node name="LevelTemplate" parent="." instance=ExtResource("1_edxwf")]
 
 [node name="Player" parent="." instance=ExtResource("2_onpur")]
-position = Vector2(0, 91)
+position = Vector2(-26, -9)

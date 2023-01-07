@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://q30qn745r6jb"]
+[gd_scene load_steps=25 format=3 uid="uid://q30qn745r6jb"]
 
+[ext_resource type="Script" path="res://player/player.gd" id="1_hryqt"]
 [ext_resource type="Texture2D" uid="uid://j5qgorxyhtpu" path="res://tilemaps/tiny_dungeon_tilemap.png" id="1_j8tlk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m0nci"]
@@ -95,6 +96,7 @@ size = Vector2(14, 13)
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_hryqt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_iiirs")
@@ -103,3 +105,7 @@ frame = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qwq4n")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
