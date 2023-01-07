@@ -193,5 +193,3 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qwq4n")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-
-[node name="Timer" type="Timer" parent="."]
