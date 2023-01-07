@@ -19,21 +19,21 @@ region = Rect2(119, 153, 16, 16)
 atlas = ExtResource("2_mm6bk")
 region = Rect2(136, 153, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_66e20"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxr1s"]
 atlas = ExtResource("2_mm6bk")
-region = Rect2(136, 170, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ebfq6"]
-atlas = ExtResource("2_mm6bk")
-region = Rect2(119, 170, 16, 16)
+region = Rect2(85, 170, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fh6ol"]
 atlas = ExtResource("2_mm6bk")
 region = Rect2(102, 170, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxr1s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebfq6"]
 atlas = ExtResource("2_mm6bk")
-region = Rect2(85, 170, 16, 16)
+region = Rect2(119, 170, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66e20"]
+atlas = ExtResource("2_mm6bk")
+region = Rect2(136, 170, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80agc"]
 atlas = ExtResource("2_mm6bk")
@@ -105,7 +105,7 @@ region = Rect2(136, 119, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4xb2h"]
 animations = [{
-"frames": [SubResource("AtlasTexture_qm7et"), SubResource("AtlasTexture_s76uq"), SubResource("AtlasTexture_s88tf"), SubResource("AtlasTexture_vve3j"), SubResource("AtlasTexture_66e20"), SubResource("AtlasTexture_ebfq6"), SubResource("AtlasTexture_fh6ol"), SubResource("AtlasTexture_hxr1s"), SubResource("AtlasTexture_80agc"), SubResource("AtlasTexture_gu8o4"), SubResource("AtlasTexture_a46rk"), SubResource("AtlasTexture_exjtb"), SubResource("AtlasTexture_hpk6h"), SubResource("AtlasTexture_ryo8l"), SubResource("AtlasTexture_gm3lt"), SubResource("AtlasTexture_bap1m"), SubResource("AtlasTexture_7rghq"), SubResource("AtlasTexture_1ko24"), SubResource("AtlasTexture_rehlr"), SubResource("AtlasTexture_rtmgn"), SubResource("AtlasTexture_8bodm"), SubResource("AtlasTexture_ks5a6"), SubResource("AtlasTexture_1i643"), SubResource("AtlasTexture_3h3vb"), SubResource("AtlasTexture_nfygf")],
+"frames": [SubResource("AtlasTexture_qm7et"), SubResource("AtlasTexture_s76uq"), SubResource("AtlasTexture_s88tf"), SubResource("AtlasTexture_vve3j"), SubResource("AtlasTexture_hxr1s"), SubResource("AtlasTexture_fh6ol"), SubResource("AtlasTexture_ebfq6"), SubResource("AtlasTexture_66e20"), SubResource("AtlasTexture_80agc"), SubResource("AtlasTexture_gu8o4"), SubResource("AtlasTexture_a46rk"), SubResource("AtlasTexture_exjtb"), SubResource("AtlasTexture_hpk6h"), SubResource("AtlasTexture_ryo8l"), SubResource("AtlasTexture_gm3lt"), SubResource("AtlasTexture_bap1m"), SubResource("AtlasTexture_7rghq"), SubResource("AtlasTexture_1ko24"), SubResource("AtlasTexture_rehlr"), SubResource("AtlasTexture_rtmgn"), SubResource("AtlasTexture_8bodm"), SubResource("AtlasTexture_ks5a6"), SubResource("AtlasTexture_1i643"), SubResource("AtlasTexture_3h3vb"), SubResource("AtlasTexture_nfygf")],
 "loop": true,
 "name": &"default",
 "speed": 5.0

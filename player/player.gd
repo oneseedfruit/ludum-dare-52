@@ -1,3 +1,4 @@
+class_name Player
 extends RigidBody2D
 
 # Movement variables
@@ -26,23 +27,32 @@ func _physics_process(delta):
 	if collision:
 		mMoving = Vector2.ZERO
 		_snap_to_tile()
-	
+
+	if mTarget != null and position.distance_squared_to(mTarget) < pow(delta * mMoveSpeed, 2):
+		mTarget = null
+		mMoving = Vector2.ZERO
+		_snap_to_tile()
+
 	if mMoving == Vector2.ZERO:
 		for dir in mInputs:
 			if Input.is_action_pressed(dir):
 				mMoving = mInputs[dir]
 				_update_raycast()
-				
-				
+
+
 # Reset position to tile
 func _snap_to_tile():
 	position -= Vector2.ONE * mTileSize * 0.5
 	position = position.snapped(Vector2.ONE * mTileSize)
 	position += Vector2.ONE * mTileSize * 0.5
-	
+
 
 # Reset raycast
 func _update_raycast():
 	var targetPos = mMoving * mTileSize
 	mRay.target_position = targetPos
 	mRay.force_raycast_update()
+
+var mTarget
+func stopAt(target):
+	mTarget = target
