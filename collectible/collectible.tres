@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://drg73t8yg72y"]
+
+[ext_resource type="Texture2D" uid="uid://cpx72q3nh4ea5" path="res://tilemaps/tilemaps.png" id="1_4i1hq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcfrp"]
+atlas = ExtResource("1_4i1hq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d17p7"]
+atlas = ExtResource("1_4i1hq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnoyc"]
+atlas = ExtResource("1_4i1hq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv6cv"]
+atlas = ExtResource("1_4i1hq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5hjm"]
+atlas = ExtResource("1_4i1hq")
+region = Rect2(16, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [SubResource("AtlasTexture_mcfrp"), SubResource("AtlasTexture_d17p7"), SubResource("AtlasTexture_bnoyc"), SubResource("AtlasTexture_uv6cv"), SubResource("AtlasTexture_h5hjm")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

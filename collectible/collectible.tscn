@@ -1,31 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlejoe8cbtuua"]
+[gd_scene load_steps=4 format=3 uid="uid://dlejoe8cbtuua"]
 
 [ext_resource type="Script" path="res://collectible/collectible.gd" id="1_ew6dp"]
-[ext_resource type="Texture2D" uid="uid://cpx72q3nh4ea5" path="res://tilemaps/tilemaps.png" id="2_od0q5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjge3"]
-atlas = ExtResource("2_od0q5")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wo1id"]
-atlas = ExtResource("2_od0q5")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_buwfs"]
-atlas = ExtResource("2_od0q5")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rj800"]
-atlas = ExtResource("2_od0q5")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4xb2h"]
-animations = [{
-"frames": [SubResource("AtlasTexture_cjge3"), SubResource("AtlasTexture_wo1id"), SubResource("AtlasTexture_buwfs"), SubResource("AtlasTexture_rj800")],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://drg73t8yg72y" path="res://collectible/collectible.tres" id="2_2at5s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_833m4"]
 radius = 6.0
@@ -35,7 +11,7 @@ z_index = 5
 script = ExtResource("1_ew6dp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_4xb2h")
+frames = ExtResource("2_2at5s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_833m4")
