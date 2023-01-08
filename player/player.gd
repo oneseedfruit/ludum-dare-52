@@ -16,11 +16,16 @@ var mInputs: Dictionary = {
 var mDirection: Vector2 = Vector2.ZERO
 var mMoving: bool = false
 var mTarget
+var mIsDie: bool = false
 
 
 # Make player stop at target position
 func stop_at(target) -> void:
     mTarget = target
+
+
+func die() -> void:
+    mIsDie = true
 
 
 func _move_toward(dir) -> void:
@@ -54,7 +59,12 @@ func _physics_process(delta: float) -> void:
         position = mTarget
         mTarget = null
         stop_moving()
-        _bouncing_effect()
+        if !mIsDie:
+            _bouncing_effect()
+        else:
+            # TODO: dead anim and ui?
+            mIsDie = false
+            LevelManager.restartLevel()
 
     if mMoving:
         var collision: KinematicCollision2D = move_and_collide(mDirection * delta * mMoveSpeed)
