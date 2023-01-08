@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/pixel_farm_tilemap.png-b0231a51d73561cae17dd2
 
 compress/mode=0
 compress/lossy_quality=0.7
-compress/hdr_compression=1
+compress/hdr_compression=0
 compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
