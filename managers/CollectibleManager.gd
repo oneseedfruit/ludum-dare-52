@@ -9,6 +9,7 @@ func cleanUp() -> void:
 	for n in get_children():
 		remove_child(n)
 		n.queue_free()
+	mCollectibleList.clear()
 
 func spawnCollectibles():
 	cleanUp()
