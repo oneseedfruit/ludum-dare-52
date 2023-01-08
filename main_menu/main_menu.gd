@@ -1,6 +1,9 @@
 extends Node2D
 
 
+@export var mGameScene : PackedScene
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -15,7 +18,7 @@ func _physics_process(_delta):
 
 func start_game() -> void:
 	var sceneTree = get_tree()
-	sceneTree.change_scene_to_file("res://game.tscn")
+	sceneTree.change_scene_to_packed(mGameScene)
 	pass
 
  

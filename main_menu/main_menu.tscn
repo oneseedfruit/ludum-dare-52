@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://d7c3qj4ebq5q"]
+[gd_scene load_steps=21 format=3 uid="uid://d7c3qj4ebq5q"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_efpa5"]
+[ext_resource type="PackedScene" uid="uid://dg2hxoe16obf6" path="res://game/game.tscn" id="2_qdbkp"]
 [ext_resource type="TileSet" uid="uid://djmlp7raqgfmf" path="res://tilemaps/tileset.tres" id="2_x5tjc"]
 [ext_resource type="SpriteFrames" uid="uid://cyo7mdt70bvi2" path="res://player/player.tres" id="3_44bds"]
 [ext_resource type="AnimationLibrary" uid="uid://xoeo5l54vedg" path="res://player/player_anim.res" id="4_551y8"]
@@ -72,6 +73,7 @@ graph_offset = Vector2(64, -13)
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_efpa5")
+mGameScene = ExtResource("2_qdbkp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
