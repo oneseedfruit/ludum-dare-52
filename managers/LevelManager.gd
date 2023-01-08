@@ -40,9 +40,13 @@ func spawnLevel(level):
 
     await mCurrentLevelNode.ready
 
-    CollectibleManager.spawnCollectibles()
-    
     _spawnPoint()
+
+    # wait for process_frame so player re-position to spawn point first
+    # (else it will collide with collectible that placed on player's lastPos)
+    await get_tree().process_frame
+
+    CollectibleManager.spawnCollectibles()
 
     pass
 
