@@ -54,6 +54,8 @@ func nextLevel() -> void:
 	mCurrentLevelIndex = mCurrentLevelIndex + 1
 	if mCurrentLevelIndex < mLevels.size():
 		spawnLevel(mCurrentLevelIndex)
+	else:
+		get_tree().root.get_node("Game").game_over()
 
 
 func _spawnPoint() -> void:
