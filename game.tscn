@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://06llghacb6lk"]
+[gd_scene load_steps=6 format=3 uid="uid://06llghacb6lk"]
 
+[ext_resource type="Script" path="res://game.gd" id="1_pownm"]
+[ext_resource type="Script" path="res://HelpPanel.gd" id="3_c28sl"]
+[ext_resource type="Texture2D" uid="uid://cgl15lxmstn5g" path="res://UI/UI.png" id="3_fm8x8"]
 [ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player/player.tscn" id="4_hmvgr"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_apd1a"]
+atlas = ExtResource("3_fm8x8")
+region = Rect2(484, 40, 292, 360)
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_pownm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -10,3 +18,75 @@ zoom = Vector2(3, 3)
 
 [node name="Player" parent="." instance=ExtResource("4_hmvgr")]
 position = Vector2(-8, -8)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="BottomLeft" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -108.0
+offset_right = -192.0
+offset_bottom = -108.0
+grow_vertical = 0
+
+[node name="Instruction" type="RichTextLabel" parent="UI/BottomLeft"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 212.0
+offset_top = 75.0
+offset_right = 372.0
+offset_bottom = 98.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Press space for help"
+fit_content_height = true
+
+[node name="HelpPanel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_c28sl")
+
+[node name="TextureRect" type="TextureRect" parent="UI/HelpPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -180.0
+offset_right = 146.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_apd1a")
+
+[node name="Instruction" type="RichTextLabel" parent="UI/HelpPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = 197.0
+offset_right = 97.5
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Press space again to hide"
+fit_content_height = true

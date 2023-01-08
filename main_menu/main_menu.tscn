@@ -1,0 +1,127 @@
+[gd_scene load_steps=20 format=3 uid="uid://d7c3qj4ebq5q"]
+
+[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_efpa5"]
+[ext_resource type="TileSet" uid="uid://djmlp7raqgfmf" path="res://tilemaps/tileset.tres" id="2_x5tjc"]
+[ext_resource type="SpriteFrames" uid="uid://cyo7mdt70bvi2" path="res://player/player.tres" id="3_44bds"]
+[ext_resource type="AnimationLibrary" uid="uid://xoeo5l54vedg" path="res://player/player_anim.res" id="4_551y8"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t7g7n"]
+animation = &"player/idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tcqfw"]
+animation = &"player/idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kp3an"]
+animation = &"player/idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1q4fs"]
+animation = &"player/idle_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_l3iho"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_t7g7n")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_tcqfw")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_kp3an")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_1q4fs")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ndchb"]
+animation = &"player/walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nf3ll"]
+animation = &"player/walk_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4yguh"]
+animation = &"player/walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tinu8"]
+animation = &"player/walk_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_xhp63"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ndchb")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_nf3ll")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_4yguh")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_tinu8")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5dktr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yx5ut"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbg8s"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_s554d"]
+states/Start/position = Vector2(254, 100)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_l3iho")
+states/idle/position = Vector2(431, 100)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_xhp63")
+states/walk/position = Vector2(681, 100)
+transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_5dktr"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_yx5ut"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_jbg8s")]
+graph_offset = Vector2(64, -13)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7g1mi"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_efpa5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(3, 3)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_x5tjc")
+format = 2
+layer_0/name = "Terrain"
+layer_0/tile_data = PackedInt32Array(-131076, 2, 4, 262140, 2, 4, 196608, 2, 4, 327675, 2, 4, 327673, 2, 4, 262138, 65538, 4, 196601, 65538, 4, 131066, 2, 4, 65529, 65538, 4, -6, 2, 4, 393210, 2, 4, -65543, 2, 4, -131078, 2, 4, -262150, 2, 4, -327687, 2, 4, -327685, 2, 4, -196613, 65538, 4, -65541, 2, 4, 65531, 2, 4, 196603, 2, 4, -262148, 2, 4, -4, 2, 4, 131068, 2, 4, 393212, 2, 4, -327683, 2, 4, -196611, 2, 4, -65539, 2, 4, 65533, 2, 4, 196605, 65538, 4, 327677, 2, 4, -262146, 2, 4, -131074, 2, 4, -2, 2, 4, 131070, 2, 4, 262142, 2, 4, 393214, 2, 4, -327681, 2, 4, -196609, 2, 4, -65537, 2, 4, 65535, 2, 4, 196607, 65538, 4, 327679, 2, 4, -327680, 65538, 4, -196608, 65538, 4, -65536, 2, 4, 65536, 2, 4, 327680, 2, 4, -393215, 2, 4, -262143, 65538, 4, -131071, 65538, 4, 1, 65538, 4, 131073, 2, 4, 262145, 65538, 4, -327678, 65538, 4, -196606, 2, 4, -65534, 2, 4, 65538, 2, 4, 196610, 65538, 4, 327682, 2, 4, -327674, 2, 4, -196602, 2, 4, -65530, 2, 4, 196614, 2, 4, 327686, 2, 4, 393213, 2, 4, -327686, 2, 4, -327684, 2, 4, -327682, 65538, 4, -393216, 2, 4, -393214, 2, 4, -393210, 2, 4, 393209, 2, 4, 393211, 2, 4, 393215, 2, 4, 327681, 2, 4, -327691, 2, 4, -262155, 2, 4, -196619, 2, 4, -131083, 2, 4, -65547, 2, 4, -11, 2, 4, 65525, 2, 4, 131061, 2, 4, 196597, 2, 4, 262133, 2, 4, 327669, 2, 4, 393205, 2, 4, -393206, 2, 4, -327670, 2, 4, -262134, 2, 4, -196598, 2, 4, -131062, 2, 4, -65526, 65538, 4, 10, 2, 4, 65546, 2, 4, 131082, 2, 4, 196618, 2, 4, 262154, 65538, 4, 327690, 2, 4, -327689, 2, 4, -65545, 2, 4, 65527, 2, 4, 196599, 2, 4, 327671, 2, 4, 393207, 2, 4, -327688, 2, 4, -262152, 2, 4, -131080, 2, 4, -8, 2, 4, 131064, 65538, 4, 262136, 2, 4, 393208, 2, 4, -327690, 65538, 4, -262154, 2, 4, -131082, 2, 4, -10, 2, 4, 131062, 2, 4, 262134, 2, 4, 393206, 2, 4, -393209, 2, 4, -262137, 65538, 4, -131065, 2, 4, 7, 2, 4, 131079, 2, 4, 262151, 2, 4, 327687, 2, 4, -393208, 2, 4, -327672, 2, 4, -196600, 2, 4, -65528, 2, 4, 196616, 65538, 4, 327688, 2, 4, -393207, 2, 4, -262135, 65538, 4, -131063, 65538, 4, 9, 65538, 4, 131081, 2, 4, 262153, 65538, 4, 327689, 2, 4, -393213, 2, 4, -262141, 65538, 4, -131069, 2, 4, 3, 2, 4, 131075, 2, 4, 262147, 2, 4, 327683, 2, 4, -393212, 2, 4, -327676, 65538, 4, -196604, 65538, 4, -65532, 2, 4, 65540, 2, 4, 196612, 2, 4, 327684, 2, 4, -393211, 2, 4, -262139, 2, 4, -131067, 2, 4, 5, 2, 4, 131077, 2, 4, 262149, 2, 4, 327685, 2, 4, 65544, 2, 4, 65542, 2, 4, -196615, 2, 4, -196617, 2, 4, -196618, 2, 4, -65546, 65538, 4, 65526, 2, 4, 196598, 2, 4, 327670, 2, 4, -262153, 2, 4, -131081, 2, 4, -9, 2, 4, 131063, 2, 4, 262135, 2, 4, -196616, 2, 4, -65544, 2, 4, 65528, 2, 4, 196600, 2, 4, 327672, 2, 4, -262151, 2, 4, -131079, 2, 4, -7, 65538, 4, 131065, 2, 4, 262137, 2, 4, -196614, 65538, 4, -65542, 2, 4, 65530, 2, 4, 196602, 2, 4, 327674, 2, 4, -262149, 2, 4, -131077, 2, 4, -5, 65538, 4, 131067, 2, 4, 262139, 2, 4, -196612, 2, 4, -65540, 2, 4, 65532, 65538, 4, 196604, 2, 4, 327676, 65538, 4, -262147, 2, 4, -131075, 2, 4, -3, 2, 4, 131069, 2, 4, 262141, 2, 4, -196610, 2, 4, -65538, 2, 4, 65534, 2, 4, 196606, 2, 4, 327678, 2, 4, -262145, 2, 4, -131073, 2, 4, -1, 2, 4, 131071, 2, 4, 262143, 2, 4, -262144, 2, 4, -131072, 2, 4, 0, 65538, 4, 131072, 65538, 4, 262144, 2, 4, -327679, 65538, 4, -196607, 2, 4, -65535, 65538, 4, 65537, 2, 4, 196609, 2, 4, -262142, 65538, 4, -131070, 2, 4, 2, 2, 4, 131074, 2, 4, 262146, 2, 4, -327677, 2, 4, -196605, 2, 4, -65533, 2, 4, 65539, 2, 4, 196611, 2, 4, -262140, 2, 4, -131068, 65538, 4, 4, 65538, 4, 131076, 65538, 4, 262148, 65538, 4, -327675, 2, 4, -196603, 2, 4, -65531, 2, 4, 65541, 2, 4, 196613, 65538, 4, -262138, 2, 4, -131066, 2, 4, 6, 2, 4, 131078, 2, 4, 262150, 2, 4, -327673, 2, 4, -196601, 65538, 4, -65529, 2, 4, 65543, 65538, 4, 196615, 65538, 4, -262136, 2, 4, -131064, 2, 4, 8, 2, 4, 131080, 2, 4, 262152, 2, 4, -327671, 2, 4, -196599, 65538, 4, -65527, 2, 4, 65545, 2, 4, 196617, 2, 4, -393228, 2, 4, -327692, 2, 4, -262156, 2, 4, -196620, 2, 4, -131084, 2, 4, -65548, 2, 4, -12, 2, 4, 65524, 2, 4, 131060, 2, 4, 196596, 2, 4, 262132, 2, 4, 327668, 2, 4, 393204, 2, 4, 458740, 2, 4, 458741, 2, 4, 458742, 2, 4, 458743, 2, 4, 458744, 2, 4, 458745, 2, 4, 458746, 2, 4, 458747, 2, 4, 458748, 2, 4, 458749, 2, 4, 458750, 2, 4, 458751, 2, 4, 393216, 2, 4, 393217, 65538, 4, 393218, 2, 4, 393219, 2, 4, 393220, 65538, 4, 393221, 65538, 4, 393222, 2, 4, 393223, 2, 4, 393224, 2, 4, 393225, 2, 4, 393226, 2, 4, 393227, 2, 4, 327691, 2, 4, 262155, 2, 4, 196619, 2, 4, 131083, 2, 4, 65547, 2, 4, 11, 2, 4, -65525, 2, 4, -131061, 65538, 4, -196597, 2, 4, -262133, 2, 4, -327669, 2, 4, -393205, 2, 4, -458741, 2, 4, -458742, 2, 4, -458743, 2, 4, -458744, 2, 4, -458745, 2, 4, -458746, 65538, 4, -458747, 2, 4, -458748, 2, 4, -458749, 2, 4, -458750, 2, 4, -458751, 2, 4, -458752, 2, 4, -393217, 2, 4, -393218, 2, 4, -393219, 2, 4, -393220, 2, 4, -393221, 2, 4, -393222, 2, 4, -393223, 2, 4, -393224, 2, 4, -393225, 2, 4, -393226, 2, 4, -393227, 2, 4)
+layer_1/name = "Object"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(-65540, 65536, 0, -65541, 65536, 0, -196613, 65536, 0, -131076, 65536, 0, -196611, 0, 0, -262144, 65536, 0, -131072, 65536, 0, -393216, 65536, 0, -327680, 65536, 0, -196608, 65536, 0, -131070, 65536, 0, -196610, 0, 0, -131073, 0, 0, -65537, 0, 0, -65539, 0, 0, -131075, 0, 0, -262154, 0, 0, -196617, 0, 0, -196615, 0, 0, -327691, 0, 0, -262155, 0, 0, -196619, 0, 0, -131083, 0, 0, -65547, 0, 0, -262152, 0, 0, -327687, 0, 0, -262151, 0, 0, -131079, 0, 0, -65543, 0, 0, -131078, 65536, 0, -262143, 65536, 0, -327678, 65536, 0, -196606, 65536, 0, -196604, 0, 0, -327675, 0, 0, -196603, 0, 0, -65531, 0, 0, -196602, 0, 0, -262137, 65536, 0, -196601, 65536, 0, -196600, 65536, 0, 8, 65536, 0, -196599, 65536, 0, 9, 65536, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -327676, 0, 0, -65532, 0, 0, -262138, 0, 0, -327673, 65536, 0, -65529, 65536, 0, 7, 65536, 0, -327671, 65536, 0, -262135, 65536, 0, -131063, 65536, 0, -65527, 65536, 0, 131062, 0, 0, 196598, 0, 0, 262134, 0, 0, 327670, 0, 0, 393206, 0, 0, 458742, 0, 0, 458743, 0, 0, 327673, 65536, 0, 393209, 65536, 0, 458745, 65536, 0, 458746, 65536, 0, 327675, 65536, 0, 393211, 65536, 0, 327676, 0, 0, 458748, 0, 0, 327677, 0, 0, 393213, 0, 0, 327678, 65536, 0, 393215, 0, 0, 458751, 0, 0, 262144, 0, 0, 393217, 0, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 393220, 65536, 0, 262149, 65536, 0, 196614, 0, 0, 262150, 0, 0, 393222, 0, 0, 131079, 0, 0, 262151, 0, 0, 327687, 0, 0, 131063, 0, 0, 262135, 0, 0, 196600, 0, 0, 327672, 0, 0, 393208, 0, 0, 458747, 65536, 0, 262140, 0, 0, 196605, 0, 0, 393214, 65536, 0, 458750, 65536, 0, 327679, 0, 0, 327681, 0, 0, 196610, 65536, 0, 327682, 65536, 0, 131075, 65536, 0, 393219, 65536, 0, 131076, 65536, 0, 196613, 65536, 0, 196616, 65536, 0, 262152, 65536, 0, 393224, 65536, 0, 131081, 65536, 0, 262153, 65536, 0, 327689, 65536, 0, 196606, 262144, 0, -131077, 196608, 0)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-86, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+frames = ExtResource("3_44bds")
+frame = 5
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+libraries = {
+"player": ExtResource("4_551y8")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Node2D"]
+tree_root = SubResource("AnimationNodeStateMachine_s554d")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7g1mi")
+parameters/idle/blend_position = Vector2(0, 0)
+parameters/walk/blend_position = Vector2(1, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -3.0
+offset_right = 122.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Space to start"
+fit_content_height = true
