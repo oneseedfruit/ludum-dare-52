@@ -1,7 +1,41 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://djmlp7raqgfmf"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://djmlp7raqgfmf"]
 
+[ext_resource type="Texture2D" uid="uid://cpx72q3nh4ea5" path="res://tilemaps/tilemaps.png" id="1_k3jfe"]
 [ext_resource type="Texture2D" uid="uid://j5qgorxyhtpu" path="res://tilemaps/tiny_dungeon_tilemap.png" id="1_no08t"]
 [ext_resource type="Texture2D" uid="uid://dyv8346e4aro4" path="res://tilemaps/pixel_farm_tilemap.png" id="2_cyo75"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ytlex"]
+texture = ExtResource("1_k3jfe")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_1/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_1/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_1/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri2kp"]
 texture = ExtResource("1_no08t")
@@ -1307,3 +1341,4 @@ custom_data_layer_0/name = "id"
 custom_data_layer_0/type = 4
 sources/2 = SubResource("TileSetAtlasSource_ri2kp")
 sources/3 = SubResource("TileSetAtlasSource_oaf7x")
+sources/0 = SubResource("TileSetAtlasSource_ytlex")
