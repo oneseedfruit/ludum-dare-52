@@ -4,7 +4,8 @@ extends Area2D
 
 var mTileTypeToFrame = {
     "collectible": 0,
-    "trap": 4,
+    "trap_pothole": 3,
+    "trap_outside": 4,
 }
 
 var mIsTrap : bool = false
@@ -31,6 +32,6 @@ func setType(tileId):
         $AnimatedSprite2D.set_frame(mTileTypeToFrame["collectible"])
         mIsTrap = false
     elif tileId.begins_with("trap"):
-        $AnimatedSprite2D.set_frame(mTileTypeToFrame["trap"])
+        $AnimatedSprite2D.set_frame(mTileTypeToFrame[tileId])
         mIsTrap = true
     pass
