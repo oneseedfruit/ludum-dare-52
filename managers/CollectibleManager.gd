@@ -5,7 +5,13 @@ extends Node
 
 var mCollectibleList: Array[Collectible] = []
 
+func cleanUp() -> void:
+    for n in get_children():
+        remove_child(n)
+        n.queue_free()
+
 func spawnCollectibles():
+    cleanUp()
     var tileMap = get_node("/root/Game/LevelTemplate/TileMap")
     if tileMap:
         var layerCount = tileMap.get_layers_count()
