@@ -44,6 +44,7 @@ offset_bottom = -108.0
 grow_vertical = 0
 
 [node name="Instruction" type="RichTextLabel" parent="UI/BottomLeft"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -54,7 +55,7 @@ offset_bottom = 98.0
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Press space for help"
+text = "space or click/tap here for help"
 fit_content_height = true
 
 [node name="HelpPanel" type="Panel" parent="UI"]
@@ -68,6 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/HelpPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -82,6 +84,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_apd1a")
 
 [node name="Instruction" type="RichTextLabel" parent="UI/HelpPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -95,7 +98,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Press space again to hide"
+text = "        space or click/tap 
+        anywhere to hide"
 fit_content_height = true
 
 [node name="WinPanel" type="Panel" parent="UI"]
@@ -107,6 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/WinPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -121,6 +126,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_3arai")
 
 [node name="Instruction" type="RichTextLabel" parent="UI/WinPanel"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -143,3 +149,5 @@ volume_db = -10.0
 autoplay = true
 
 [connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="gui_input" from="UI/BottomLeft/Instruction" to="." method="_on_instruction_gui_input"]
+[connection signal="gui_input" from="UI/HelpPanel" to="." method="_on_help_panel_gui_input"]

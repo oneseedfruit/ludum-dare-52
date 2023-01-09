@@ -32,3 +32,14 @@ func _on_draw():
 		var player_camera: Camera2D = get_node("Player/Camera2D")
 		player_camera.current = true
 		player_camera.zoom = Vector2(4, 4)
+
+
+func _on_help_panel_gui_input(event):
+	if event is InputEventScreenTouch or event is InputEventMouseButton:
+		$UI/HelpPanel.hide()
+
+
+func _on_instruction_gui_input(event):
+	if event is InputEventScreenTouch or event is InputEventMouseButton:
+		$UI/HelpPanel.show()
+		
