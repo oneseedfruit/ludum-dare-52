@@ -64,6 +64,22 @@ func _ready() -> void:
 	_snap_to_tile()
 	_update_raycast()
 	
+	
+func _unhandled_input(event):
+	var threshold = 2
+	if not mMoving and not mIsDie:
+		if event is InputEventScreenDrag:
+			if abs(event.relative.y) < 1:
+				if event.relative.x > abs(threshold):
+					_move_toward("right")
+				if event.relative.x < -abs(threshold):
+					_move_toward("left")
+			elif abs(event.relative.x) < 1:
+				if event.relative.y > abs(threshold):
+					_move_toward("down")
+				if event.relative.y < -abs(threshold):
+					_move_toward("up")
+	
 
 func _physics_process(delta: float) -> void:
 	if not mMoving and not mIsDie:

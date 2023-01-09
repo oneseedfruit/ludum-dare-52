@@ -9,7 +9,7 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("space") or event is InputEventScreenTouch:
+	if event.is_action_pressed("space"):
 		if not mGameOver:
 			$UI/HelpPanel.visible = !$UI/HelpPanel.visible
 		else:
