@@ -28,6 +28,18 @@ func die() -> void:
 	mIsDie = true
 
 
+func _die() -> void:
+	$AudioDied.play()
+	$AnimationTree.get("parameters/playback").travel("playerfalling")
+	var tween = get_tree().create_tween()
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2.ZERO, 1)
+	tween.parallel().tween_property($AnimatedSprite2D, "rotation", 360, 1)
+
+
+func reset() -> void:
+	$AnimationTree.get("parameters/playback").travel("playerreset")
+
+
 func _move_toward(dir) -> void:
 	mMoving = true
 	mDirection = mInputs[dir]
@@ -62,8 +74,7 @@ func _physics_process(delta: float) -> void:
 		if !mIsDie:
 			_bouncing_effect()
 		else:
-			# TODO: dead anim and ui?
-			$AudioDied.play()
+			_die()
 
 
 	if mMoving:
