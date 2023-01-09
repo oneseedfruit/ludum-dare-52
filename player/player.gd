@@ -37,6 +37,9 @@ func _die() -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property($AnimatedSprite2D, "scale", Vector2.ZERO, 1)
 		tween.parallel().tween_property($AnimatedSprite2D, "rotation", 360, 1)
+	elif death_type == 4:
+		$AudioGetBackHere.play()
+		get_tree().create_timer(0.2).connect("timeout", func(): $AudioDied.play())
 	else:
 		$AudioDied.play()
 
