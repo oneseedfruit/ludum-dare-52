@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cyo7mdt70bvi2" path="res://player/player.tres" id="2_elgf4"]
 [ext_resource type="AnimationLibrary" uid="uid://xoeo5l54vedg" path="res://player/player_anim.res" id="3_rti2p"]
 [ext_resource type="AudioStream" uid="uid://lkudwve2rjuc" path="res://sfx/hitwall.wav" id="4_7mk7g"]
-[ext_resource type="AudioStream" uid="uid://dmoq2s1qax8pa" path="res://sfx/died.wav" id="5_wf32l"]
+[ext_resource type="AudioStream" uid="uid://c6b2bhukloosk" path="res://sfx/monkey_screaming.wav" id="5_p3oxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwq4n"]
 size = Vector2(14, 13)
@@ -123,7 +123,7 @@ stream = ExtResource("4_7mk7g")
 volume_db = 1.0
 
 [node name="AudioDied" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_wf32l")
+stream = ExtResource("5_p3oxj")
 volume_db = 1.0
 
 [connection signal="finished" from="AudioDied" to="." method="_on_audio_died_finished"]

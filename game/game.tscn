@@ -44,7 +44,6 @@ offset_bottom = -108.0
 grow_vertical = 0
 
 [node name="Instruction" type="RichTextLabel" parent="UI/BottomLeft"]
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -69,7 +68,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/HelpPanel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -84,7 +82,6 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_apd1a")
 
 [node name="Instruction" type="RichTextLabel" parent="UI/HelpPanel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -110,7 +107,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/WinPanel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -125,7 +121,6 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_3arai")
 
 [node name="Instruction" type="RichTextLabel" parent="UI/WinPanel"]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
