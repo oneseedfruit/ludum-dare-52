@@ -63,6 +63,7 @@ func _spawnPoint() -> void:
 					var playerNode = get_node("/root/Game/Player")
 					var targetPos = tileMap.map_to_local(cellCoord)
 					playerNode.stop_moving()
+					playerNode.reset()
 					playerNode.set_position(targetPos)
 					tileMap.erase_cell(layerIndex, cellCoord)
 	pass

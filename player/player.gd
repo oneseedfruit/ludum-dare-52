@@ -18,6 +18,7 @@ var mMoving: bool = false
 var mTarget
 var mIsDie: bool = false
 var death_type: int = 4
+var mStepUsed : int = 0
 
 
 # Make player stop at target position
@@ -31,7 +32,7 @@ func die(death_type = 4) -> void:
 
 
 func _die() -> void:
-	_reset()
+	reset()
 	if death_type == 3:
 		$AudioFall.play()
 		var tween = get_tree().create_tween()
@@ -44,13 +45,29 @@ func _die() -> void:
 		$AudioDied.play()
 
 
-func _reset() -> void:
+func reset() -> void:
+	update_step(true)
 	mDirection = Vector2.DOWN
 	$AnimationTree.set("parameters/idle/blend_position", mDirection)
 	$AnimationTree.get("parameters/playback").travel("idle")
 
 
+func update_step(reset = false) -> void:
+	if !reset:
+		mStepUsed = mStepUsed + 1
+	else:
+		mStepUsed = 0
+	get_tree().root.get_node("Game").update_ui()
+
+
 func _move_toward(dir) -> void:
+	mDirection = mInputs[dir]
+	_update_raycast()
+
+	if mRay.is_colliding():
+		return
+
+	update_step()
 	mMoving = true
 	mDirection = mInputs[dir]
 	$AnimationTree.set("parameters/idle/blend_position", mDirection)
@@ -68,8 +85,8 @@ func stop_moving() -> void:
 func _ready() -> void:
 	_snap_to_tile()
 	_update_raycast()
-	
-	
+
+
 func _unhandled_input(event):
 	var threshold = 2
 	if not mMoving and not mIsDie:
@@ -84,14 +101,13 @@ func _unhandled_input(event):
 					_move_toward("down")
 				if event.relative.y < -abs(threshold):
 					_move_toward("up")
-	
+
 
 func _physics_process(delta: float) -> void:
 	if not mMoving and not mIsDie:
 		for dir in mInputs:
 			if Input.is_action_pressed(dir):
 				_move_toward(dir)
-				_update_raycast()
 
 	if mTarget != null and position.distance_squared_to(mTarget) < pow(delta * mMoveSpeed, 2):
 		position = mTarget
@@ -131,6 +147,7 @@ func _on_collision(collision: KinematicCollision2D) -> void:
 			if is_wall:
 				$AudioWall.play()
 				_bouncing_effect()
+
 
 # Reset position to tile
 func _snap_to_tile() -> void:
