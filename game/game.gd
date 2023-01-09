@@ -63,6 +63,7 @@ func complete_level():
 	$UI/LevelCompletedPanel/Label.text = "Step: %d" % step
 	$UI/LevelCompletedPanel/IdealStepLabel.text = "Ideal Step: %d" % LevelManager.get_level_ideal_step_count()
 	$UI/LevelCompletedPanel.show()
+	$LevelDone.play()
 
 
 func level_complete_input(event):

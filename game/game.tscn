@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dg2hxoe16obf6"]
+[gd_scene load_steps=15 format=3 uid="uid://dg2hxoe16obf6"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_d3mtx"]
 [ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player/player.tscn" id="2_uwxw5"]
 [ext_resource type="Texture2D" uid="uid://cgl15lxmstn5g" path="res://UI/UI.png" id="3_p316b"]
 [ext_resource type="AudioStream" uid="uid://dqmrtposvu3tc" path="res://bgm/bgm.wav" id="4_41kxs"]
+[ext_resource type="AudioStream" uid="uid://1x46wd33qm5h" path="res://sfx/level_done.wav" id="5_c3mbp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yn04j"]
 
@@ -22,6 +23,15 @@ region = Rect2(484, 40, 292, 360)
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8vip"]
 atlas = ExtResource("3_p316b")
 region = Rect2(8, 164, 437, 194)
+
+[sub_resource type="SystemFont" id="SystemFont_ql4pw"]
+generate_mipmaps = true
+force_autohinter = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_g57df"]
+line_spacing = 1.0
+font = SubResource("SystemFont_ql4pw")
+font_size = 96
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_d3mtx")
@@ -203,15 +213,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -207.0
-offset_top = -130.0
-offset_right = -120.0
-offset_bottom = -104.0
+offset_left = -238.5
+offset_top = -174.5
+offset_right = 238.5
+offset_bottom = -41.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(5, 5)
 size_flags_horizontal = 4
 text = "Step: 9999"
+label_settings = SubResource("LabelSettings_g57df")
 horizontal_alignment = 1
 
 [node name="IdealStepLabel" type="Label" parent="UI/LevelCompletedPanel"]
@@ -252,6 +262,9 @@ left (a) or swipe left to restart level"
 stream = ExtResource("4_41kxs")
 volume_db = -20.0
 autoplay = true
+
+[node name="LevelDone" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_c3mbp")
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="gui_input" from="UI/BottomLeft/Instruction" to="." method="_on_instruction_gui_input"]
