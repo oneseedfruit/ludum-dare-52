@@ -1,7 +1,6 @@
 class_name Collectible
 extends Area2D
 
-
 var mTileTypeToFrame = {
 	"collectible": 0,
 	"trap_pothole": 3,
@@ -21,7 +20,14 @@ func _on_body_entered(body):
 			# TODO: add points
 			body.stop_at(position)
 			get_parent().collect(self)
-			queue_free()
+			for sound in $CollectedSounds.get_children():
+				var stream = sound as AudioStreamPlayer2D
+				hide()
+				stream.connect("finished", func(): queue_free())
+				randomize()
+				if randf_range(0, 1) >= 0.5:
+					sound.play()
+					break
 		else:
 			body.stop_at(position)
 			body.die($AnimatedSprite2D.frame)
