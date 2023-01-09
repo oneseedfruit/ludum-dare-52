@@ -2,6 +2,7 @@ extends Node
 
 
 var mLevels : Array[String]
+@export var mLevelPackScenes : Array[PackedScene]
 
 @export var mStartLevel : int = 0
 
@@ -32,7 +33,13 @@ func spawnLevel(level) -> void:
 		await mCurrentLevelNode.tree_exited
 
 	var parentNode = get_tree().root.get_node("Game")
-	var scene = load("levels/%s" % mLevels[level])
+
+
+	var scene
+	if mLevels.size() > 0:
+		scene = load("levels/%s" % mLevels[level])
+	else:
+		scene = mLevelPackScenes[level]
 
 	mCurrentLevelNode = scene.instantiate()
 	parentNode.add_child.call_deferred(mCurrentLevelNode)
