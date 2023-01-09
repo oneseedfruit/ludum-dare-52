@@ -43,4 +43,7 @@ func _on_help_panel_gui_input(event):
 func _on_instruction_gui_input(event):
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		$UI/HelpPanel.show()
-		
+
+
+func update_ui():
+	$UI/TopLeft/StepLabel.text = "Step: %d" % $Player.mStepUsed
