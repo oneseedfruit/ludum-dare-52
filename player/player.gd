@@ -63,7 +63,7 @@ func stop_moving() -> void:
 func _ready() -> void:
 	_snap_to_tile()
 	_update_raycast()
-
+	
 
 func _physics_process(delta: float) -> void:
 	if not mMoving and not mIsDie:
@@ -133,4 +133,9 @@ func _bouncing_effect() -> void:
 
 func _on_audio_died_finished():
 	mIsDie = false
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2.ONE, 0.5)
+	tween.parallel().tween_property($AnimatedSprite2D, "rotation", 0, 0.5)
+
 	LevelManager.restartLevel()
