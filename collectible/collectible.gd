@@ -15,22 +15,23 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_body_entered(body):
-	if body.get_script() == Player:
-		if !mIsTrap:
-			# TODO: add points
-			body.stop_at(position)
-			get_parent().collect(self)
-			for sound in $CollectedSounds.get_children():
-				var stream = sound as AudioStreamPlayer2D
-				hide()
-				stream.connect("finished", func(): queue_free())
-				randomize()
-				if randf_range(0, 1) >= 0.5:
-					sound.play()
-					break
-		else:
-			body.stop_at(position)
-			body.die($AnimatedSprite2D.frame)
+	if visible:
+		if body.get_script() == Player:
+			if !mIsTrap:
+				# TODO: add points
+				body.stop_at(position)
+				get_parent().collect(self)
+				for sound in $CollectedSounds.get_children():
+					var stream = sound as AudioStreamPlayer2D
+					hide()
+					stream.connect("finished", func(): queue_free())
+					randomize()
+					if randf_range(0, 1) >= 0.5:
+						sound.play()
+						break
+			else:
+				body.stop_at(position)
+				body.die($AnimatedSprite2D.frame)
 
 
 func setType(tileId):
