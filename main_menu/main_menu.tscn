@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://d7c3qj4ebq5q"]
+[gd_scene load_steps=22 format=3 uid="uid://d7c3qj4ebq5q"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_efpa5"]
 [ext_resource type="PackedScene" uid="uid://dg2hxoe16obf6" path="res://game/game.tscn" id="2_qdbkp"]
 [ext_resource type="TileSet" uid="uid://djmlp7raqgfmf" path="res://tilemaps/tileset.tres" id="2_x5tjc"]
 [ext_resource type="SpriteFrames" uid="uid://cyo7mdt70bvi2" path="res://player/player.tres" id="3_44bds"]
 [ext_resource type="AnimationLibrary" uid="uid://xoeo5l54vedg" path="res://player/player_anim.res" id="4_551y8"]
+[ext_resource type="Texture2D" uid="uid://8a31e2sdh6f1" path="res://UI/title.png" id="6_gmse2"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t7g7n"]
 animation = &"player/idle_down"
@@ -93,11 +94,12 @@ layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-65540, 65536, 0, -65541, 65536, 0, -196613, 65536, 0, -131076, 65536, 0, -196611, 0, 0, -262144, 65536, 0, -131072, 65536, 0, -393216, 65536, 0, -327680, 65536, 0, -196608, 65536, 0, -131070, 65536, 0, -196610, 0, 0, -131073, 0, 0, -65537, 0, 0, -65539, 0, 0, -131075, 0, 0, -262154, 0, 0, -196617, 0, 0, -196615, 0, 0, -327691, 0, 0, -262155, 0, 0, -196619, 0, 0, -131083, 0, 0, -65547, 0, 0, -262152, 0, 0, -327687, 0, 0, -262151, 0, 0, -131079, 0, 0, -65543, 0, 0, -131078, 65536, 0, -262143, 65536, 0, -327678, 65536, 0, -196606, 65536, 0, -196604, 0, 0, -327675, 0, 0, -196603, 0, 0, -65531, 0, 0, -196602, 0, 0, -262137, 65536, 0, -196601, 65536, 0, -196600, 65536, 0, 8, 65536, 0, -196599, 65536, 0, 9, 65536, 0, -262141, 0, 0, -196605, 0, 0, -131069, 0, 0, -327676, 0, 0, -65532, 0, 0, -262138, 0, 0, -327673, 65536, 0, -65529, 65536, 0, 7, 65536, 0, -327671, 65536, 0, -262135, 65536, 0, -131063, 65536, 0, -65527, 65536, 0, 131062, 0, 0, 196598, 0, 0, 262134, 0, 0, 327670, 0, 0, 393206, 0, 0, 458742, 0, 0, 458743, 0, 0, 327673, 65536, 0, 393209, 65536, 0, 458745, 65536, 0, 458746, 65536, 0, 327675, 65536, 0, 393211, 65536, 0, 327676, 0, 0, 458748, 0, 0, 327677, 0, 0, 393213, 0, 0, 327678, 65536, 0, 393215, 0, 0, 458751, 0, 0, 262144, 0, 0, 393217, 0, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 393220, 65536, 0, 262149, 65536, 0, 196614, 0, 0, 262150, 0, 0, 393222, 0, 0, 131079, 0, 0, 262151, 0, 0, 327687, 0, 0, 131063, 0, 0, 262135, 0, 0, 196600, 0, 0, 327672, 0, 0, 393208, 0, 0, 458747, 65536, 0, 262140, 0, 0, 196605, 0, 0, 393214, 65536, 0, 458750, 65536, 0, 327679, 0, 0, 327681, 0, 0, 196610, 65536, 0, 327682, 65536, 0, 131075, 65536, 0, 393219, 65536, 0, 131076, 65536, 0, 196613, 65536, 0, 196616, 65536, 0, 262152, 65536, 0, 393224, 65536, 0, 131081, 65536, 0, 262153, 65536, 0, 327689, 65536, 0, 196606, 262144, 0, -131077, 196608, 0)
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-86, 8)
+position = Vector2(-54, -2)
+scale = Vector2(1.2, 1.2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
 frames = ExtResource("3_44bds")
-frame = 5
+frame = 4
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
@@ -113,19 +115,33 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7g1mi")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(1, 0)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -78.0
-offset_top = -3.0
-offset_right = 122.0
-offset_bottom = 47.0
+offset_left = -286.5
+offset_top = -114.0
+offset_right = 286.5
+offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press Space to start"
-fit_content_height = true
+scale = Vector2(1.2, 1.2)
+size_flags_horizontal = 4
+texture = ExtResource("6_gmse2")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -37.0
+offset_right = 190.0
+offset_bottom = -11.0
+grow_vertical = 0
+text = "space or tap to start"
 
 [connection signal="draw" from="." to="." method="_on_draw"]

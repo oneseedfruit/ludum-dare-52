@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cgl15lxmstn5g" path="res://UI/UI.png" id="3_p316b"]
 [ext_resource type="AudioStream" uid="uid://dqmrtposvu3tc" path="res://bgm/bgm.wav" id="4_41kxs"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_apd1a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvbpn"]
 atlas = ExtResource("3_p316b")
 region = Rect2(484, 40, 292, 360)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3arai"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8vip"]
 atlas = ExtResource("3_p316b")
 region = Rect2(8, 164, 437, 194)
 
@@ -44,6 +44,7 @@ offset_bottom = -108.0
 grow_vertical = 0
 
 [node name="Instruction" type="RichTextLabel" parent="UI/BottomLeft"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -68,6 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/HelpPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -79,9 +81,10 @@ offset_right = 146.0
 offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_apd1a")
+texture = SubResource("AtlasTexture_jvbpn")
 
 [node name="Instruction" type="RichTextLabel" parent="UI/HelpPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -108,6 +111,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/WinPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -119,9 +123,10 @@ offset_right = 218.5
 offset_bottom = 97.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_3arai")
+texture = SubResource("AtlasTexture_l8vip")
 
 [node name="Instruction" type="RichTextLabel" parent="UI/WinPanel"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
