@@ -31,20 +31,20 @@ func die(death_type = 4) -> void:
 
 
 func _die() -> void:
-	mDirection = Vector2.DOWN
-	$AnimationTree.set("parameters/idle/blend_position", mDirection)
+	_reset()
 	if death_type == 3:
 		$AudioFall.play()
-		$AnimationTree.get("parameters/playback").travel("playerfalling")
 		var tween = get_tree().create_tween()
 		tween.tween_property($AnimatedSprite2D, "scale", Vector2.ZERO, 1)
 		tween.parallel().tween_property($AnimatedSprite2D, "rotation", 360, 1)
 	else:
 		$AudioDied.play()
-	
 
-func reset() -> void:
-	$AnimationTree.get("parameters/playback").travel("playerreset")
+
+func _reset() -> void:
+	mDirection = Vector2.DOWN
+	$AnimationTree.set("parameters/idle/blend_position", mDirection)
+	$AnimationTree.get("parameters/playback").travel("idle")
 
 
 func _move_toward(dir) -> void:
@@ -150,10 +150,11 @@ func _bouncing_effect() -> void:
 
 
 func _on_audio_died_finished():
-	mIsDie = false
-
 	var tween = get_tree().create_tween()
-	tween.connect("finished", func(): $AudioTada.play())
+	tween.connect("finished", func():
+		$AudioTada.play()
+		mIsDie = false
+	)
 	tween.tween_property($AnimatedSprite2D, "scale", Vector2.ONE, 0.5)
 	tween.parallel().tween_property($AnimatedSprite2D, "rotation", 0, 0.5)
 

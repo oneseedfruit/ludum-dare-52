@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://q30qn745r6jb"]
+[gd_scene load_steps=24 format=3 uid="uid://q30qn745r6jb"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_hryqt"]
 [ext_resource type="SpriteFrames" uid="uid://cyo7mdt70bvi2" path="res://player/player.tres" id="2_elgf4"]
@@ -34,12 +34,6 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_h7cai")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1scl6"]
-animation = &"player/falling"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uqdq6"]
-animation = &"player/reset"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3w06j"]
 animation = &"player/walk_left"
 
@@ -70,25 +64,13 @@ blend_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbg8s"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nv3je"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j3ovq"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_we2r5"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cl48h"]
 states/Start/position = Vector2(254, 100)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_l3iho")
 states/idle/position = Vector2(431, 100)
-states/playerfalling/node = SubResource("AnimationNodeAnimation_1scl6")
-states/playerfalling/position = Vector2(680, 205)
-states/playerreset/node = SubResource("AnimationNodeAnimation_uqdq6")
-states/playerreset/position = Vector2(431, 205)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_xhp63")
 states/walk/position = Vector2(680, 100)
-transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_5dktr"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_yx5ut"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_jbg8s"), "walk", "playerfalling", SubResource("AnimationNodeStateMachineTransition_nv3je"), "playerfalling", "playerreset", SubResource("AnimationNodeStateMachineTransition_j3ovq"), "playerreset", "idle", SubResource("AnimationNodeStateMachineTransition_we2r5")]
+transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_5dktr"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_yx5ut"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_jbg8s")]
 graph_offset = Vector2(64, -13)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_oklyw"]
