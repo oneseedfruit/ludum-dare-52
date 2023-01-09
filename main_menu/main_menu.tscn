@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d7c3qj4ebq5q"]
+[gd_scene load_steps=34 format=3 uid="uid://d7c3qj4ebq5q"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_efpa5"]
 [ext_resource type="PackedScene" uid="uid://dg2hxoe16obf6" path="res://game/game.tscn" id="2_qdbkp"]
@@ -97,6 +97,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_67t5j"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_u3imq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ji41"]
+_data = {
+"RESET": SubResource("Animation_u3imq"),
+"blink": SubResource("Animation_67t5j")
+}
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_efpa5")
 mGameScene = ExtResource("2_qdbkp")
@@ -193,12 +230,19 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.262
-offset_left = -85.5
+offset_left = -69.5
 offset_top = 144.0
-offset_right = 85.5
-offset_bottom = 0.223984
+offset_right = 101.5
+offset_bottom = 0.223999
 grow_horizontal = 2
 text = "space or tap to start"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Label"]
+autoplay = "blink"
+libraries = {
+"": SubResource("AnimationLibrary_5ji41")
+}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = 11

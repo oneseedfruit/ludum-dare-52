@@ -20,6 +20,8 @@ func _ready():
 func _input(event):
 	if not _started and (event.is_action_pressed("space") or event is InputEventScreenTouch):
 		_started = true
+		$CanvasLayer/Label.hide()
+		
 		me_want_banana.connect("finished", func(): 
 			where_my_banana.play()
 			$BigMonke/AnimatedSprite2D.play()
