@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://q30qn745r6jb"]
+[gd_scene load_steps=29 format=3 uid="uid://q30qn745r6jb"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_hryqt"]
 [ext_resource type="SpriteFrames" uid="uid://cyo7mdt70bvi2" path="res://player/player.tres" id="2_elgf4"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://lkudwve2rjuc" path="res://sfx/hitwall.wav" id="4_7mk7g"]
 [ext_resource type="AudioStream" uid="uid://c6b2bhukloosk" path="res://sfx/monkey_screaming.wav" id="5_p3oxj"]
 [ext_resource type="AudioStream" uid="uid://ber5ifsn588hx" path="res://sfx/monkey_screaming_2.wav" id="6_55wax"]
+[ext_resource type="AudioStream" uid="uid://caot7iat8a0xy" path="res://sfx/monkey_ta-da.wav" id="7_35mdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwq4n"]
 size = Vector2(14, 13)
@@ -130,6 +131,9 @@ volume_db = 1.0
 [node name="AudioFall" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_55wax")
 volume_db = 1.0
+
+[node name="AudioTada" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_35mdr")
 
 [connection signal="finished" from="AudioDied" to="." method="_on_audio_died_finished"]
 [connection signal="finished" from="AudioFall" to="." method="_on_audio_died_finished"]

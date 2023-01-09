@@ -135,6 +135,7 @@ func _on_audio_died_finished():
 	mIsDie = false
 	
 	var tween = get_tree().create_tween()
+	tween.connect("finished", func(): $AudioTada.play())
 	tween.tween_property($AnimatedSprite2D, "scale", Vector2.ONE, 0.5)
 	tween.parallel().tween_property($AnimatedSprite2D, "rotation", 0, 0.5)
 
