@@ -1,7 +1,6 @@
 extends Node
 
 
-var mLevels : Array[String]
 @export var mLevelPackScenes : Array[PackedScene]
 
 @export var mStartLevel : int = 0
@@ -9,16 +8,6 @@ var mLevels : Array[String]
 var mCurrentLevelIndex
 var mCurrentLevelNode
 
-func _init() -> void:
-	var dir = DirAccess.open("res://levels")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.begins_with("level_") and file_name.ends_with(".tscn"):
-				mLevels.append(file_name)
-			file_name = dir.get_next()
-	pass
 
 # Called when the node enters the scene tree for the first time.
 func initializeLevel() -> void:
@@ -35,11 +24,7 @@ func spawnLevel(level) -> void:
 	var parentNode = get_tree().root.get_node("Game")
 
 
-	var scene
-	if mLevels.size() > 0:
-		scene = load("levels/%s" % mLevels[level])
-	else:
-		scene = mLevelPackScenes[level]
+	var scene = mLevelPackScenes[level]
 
 	mCurrentLevelNode = scene.instantiate()
 	parentNode.add_child.call_deferred(mCurrentLevelNode)
@@ -59,7 +44,7 @@ func spawnLevel(level) -> void:
 
 func nextLevel() -> void:
 	mCurrentLevelIndex = mCurrentLevelIndex + 1
-	if mCurrentLevelIndex < mLevels.size():
+	if mCurrentLevelIndex < mLevelPackScenes.size():
 		spawnLevel(mCurrentLevelIndex)
 	else:
 		get_tree().root.get_node("Game").game_over()
