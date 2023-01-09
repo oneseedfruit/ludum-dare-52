@@ -27,8 +27,30 @@ _global_script_class_icons={
 [application]
 
 config/name="Crisis in Banana Republic"
+config/description="Ludum Dare 52 Jam entry.
+
+Design: 
+Isaac Lee Pountney
+
+Art: 
+Charlene Ng Andrew
+
+Code: 
+Shaun Ho
+Randy Tan Shaoxian
+
+Bgm:
+Isaac Lee Pountney
+
+Sfx: 
+Randy Tan Shaoxian
+
+Voices:
+Randy Tan Shaoxian"
 run/main_scene="res://main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+boot_splash/image="res://bootsplash.png"
+boot_splash/bg_color=Color(0.462745, 0.231373, 0.211765, 1)
 config/icon="res://UI/UIAssets.png"
 
 [autoload]
