@@ -2,7 +2,7 @@ extends Node
 
 
 @export var mLevelPackScenes : Array[PackedScene]
-
+@export var mLevelSteps : Array[int]
 @export var mStartLevel : int = 0
 
 var mCurrentLevelIndex
@@ -72,4 +72,10 @@ func _spawnPoint() -> void:
 func restartLevel() -> void:
 	spawnLevel(mCurrentLevelIndex)
 	pass
+
+
+func get_level_ideal_step_count() -> int:
+	if mLevelSteps.size() > mCurrentLevelIndex:
+		return mLevelSteps[mCurrentLevelIndex]
+	return 0
 

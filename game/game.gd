@@ -10,6 +10,10 @@ func _ready():
 
 
 func _input(event):
+	if $UI/LevelCompletedPanel.visible:
+		level_complete_input(event)
+		return
+
 	if event.is_action_pressed("space"):
 		if not mGameOver:
 			$UI/HelpPanel.visible = !$UI/HelpPanel.visible
@@ -46,4 +50,57 @@ func _on_instruction_gui_input(event):
 
 
 func update_ui():
+	$UI/TopLeft/LevelLabel.text = "Level: {}/{}".format([LevelManager.mCurrentLevelIndex + 1, LevelManager.mLevelPackScenes.size()], "{}")
 	$UI/TopLeft/StepLabel.text = "Step: %d" % $Player.mStepUsed
+
+
+func complete_level():
+	var step = $Player.mStepUsed
+	$Player.reset_pose_only()
+	$Player.set_active(false)
+	$UI/LevelCompletedPanel/Label.text = "Step: %d" % step
+	$UI/LevelCompletedPanel/IdealStepLabel.text = "Ideal Step: %d" % LevelManager.get_level_ideal_step_count()
+	$UI/LevelCompletedPanel.show()
+
+
+func level_complete_input(event):
+	if event.is_action_pressed("left"):
+		restart_level()
+	elif event.is_action_pressed("right"):
+		next_level()
+
+	var threshold = 2
+	if event is InputEventScreenDrag:
+		if abs(event.relative.y) < 1:
+			if event.relative.x > abs(threshold):
+				next_level()
+			if event.relative.x < -abs(threshold):
+				restart_level()
+
+
+func next_level():
+	set_process_input(false)
+	LevelManager.nextLevel()
+	$UI/LevelCompletedPanel.hide()
+
+	var timer = get_tree().create_timer(0.2)
+	await timer.timeout
+
+	$Player.reset()
+	$Player.set_active(true)
+	set_process_input(true)
+	pass
+
+
+func restart_level():
+	set_process_input(false)
+	LevelManager.restartLevel()
+	$UI/LevelCompletedPanel.hide()
+
+	var timer = get_tree().create_timer(0.2)
+	await timer.timeout
+
+	$Player.reset()
+	$Player.set_active(true)
+	set_process_input(true)
+	pass

@@ -47,6 +47,10 @@ func _die() -> void:
 
 func reset() -> void:
 	update_step(true)
+	reset_pose_only()
+
+
+func reset_pose_only() -> void:
 	mDirection = Vector2.DOWN
 	$AnimationTree.set("parameters/idle/blend_position", mDirection)
 	$AnimationTree.get("parameters/playback").travel("idle")
@@ -179,3 +183,8 @@ func _on_audio_died_finished():
 	tween.parallel().tween_property($AnimatedSprite2D, "rotation", 0, 0.5)
 
 	LevelManager.restartLevel()
+
+
+func set_active(active: bool):
+	set_process_unhandled_input(active)
+	set_physics_process(active)

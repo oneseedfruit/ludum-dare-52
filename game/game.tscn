@@ -38,10 +38,23 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="LevelLabel" type="Label" parent="UI/TopLeft"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 85.0
+offset_bottom = 34.0
+text = "Level: 100"
+uppercase = true
+
 [node name="StepLabel" type="Label" parent="UI/TopLeft"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Step: 0"
+layout_mode = 0
+offset_left = 120.0
+offset_top = 8.0
+offset_right = 200.0
+offset_bottom = 34.0
+text = "Step: 9999"
+uppercase = true
 
 [node name="BottomLeft" type="Control" parent="UI"]
 layout_mode = 3
@@ -55,6 +68,7 @@ offset_bottom = -108.0
 grow_vertical = 0
 
 [node name="Instruction" type="RichTextLabel" parent="UI/BottomLeft"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -79,6 +93,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/HelpPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -93,6 +108,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_jvbpn")
 
 [node name="Instruction" type="RichTextLabel" parent="UI/HelpPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -119,6 +135,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/WinPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -132,7 +149,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_l8vip")
 
-[node name="Instruction" type="RichTextLabel" parent="UI/WinPanel"]
+[node name="Instruction" type="Label" parent="UI/WinPanel"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -145,9 +163,67 @@ offset_bottom = -154.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "Press space to restart"
-fit_content_height = true
+
+[node name="LevelCompletedPanel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/LevelCompletedPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -130.0
+offset_right = -120.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+size_flags_horizontal = 4
+text = "Step: 9999"
+horizontal_alignment = 1
+
+[node name="IdealStepLabel" type="Label" parent="UI/LevelCompletedPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -9.0
+offset_right = 61.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ideal Step: 9999"
+horizontal_alignment = 1
+
+[node name="Instruction" type="Label" parent="UI/LevelCompletedPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = 80.0
+offset_right = 145.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "right (d) or swipe right to proceed
+
+left (a) or swipe left to restart level"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_41kxs")

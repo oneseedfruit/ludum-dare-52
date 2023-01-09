@@ -35,4 +35,4 @@ func spawnCollectibles():
 func collect(_collectible):
 	mCollectibleList.erase(_collectible)
 	if mCollectibleList.size() == 0:
-		get_node("/root/LevelManager").nextLevel()
+		get_tree().root.get_node("Game").complete_level()
