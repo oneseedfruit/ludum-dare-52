@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game/game.gd" id="1_d3mtx"]
 [ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player/player.tscn" id="2_uwxw5"]
 [ext_resource type="Texture2D" uid="uid://cgl15lxmstn5g" path="res://UI/UI.png" id="3_p316b"]
-[ext_resource type="AudioStream" uid="uid://c043iue7huqub" path="res://bgm/2023-01-09 14-16.wav" id="4_vrr5m"]
+[ext_resource type="AudioStream" uid="uid://dqmrtposvu3tc" path="res://bgm/bgm.wav" id="4_41kxs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apd1a"]
 atlas = ExtResource("3_p316b")
@@ -144,7 +144,7 @@ text = "Press space to restart"
 fit_content_height = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_vrr5m")
+stream = ExtResource("4_41kxs")
 volume_db = -10.0
 autoplay = true
 
