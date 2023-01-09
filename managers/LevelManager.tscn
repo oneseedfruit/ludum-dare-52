@@ -17,4 +17,4 @@
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_6d6co")
 mLevelPackScenes = [ExtResource("2_t52kv"), ExtResource("3_vg6rm"), ExtResource("4_tamrs"), ExtResource("5_p8n1g"), ExtResource("6_4vxe1"), ExtResource("7_mn455"), ExtResource("8_0xt2m"), ExtResource("9_e3y1k"), ExtResource("10_64ari"), ExtResource("11_qw3wx"), ExtResource("12_n7d2b"), ExtResource("13_8hb45")]
-mLevelSteps = [10, 18, 14, 18, 26, 28, 23, 24, 26, 36, 37, 32]
+mLevelSteps = [10, 18, 14, 18, 26, 28, 23, 23, 24, 24, 30, 37]
