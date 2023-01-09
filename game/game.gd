@@ -6,6 +6,7 @@ var mGameOver : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	LevelManager.initializeLevel()
+	$AudioStreamPlayer.connect("finished", func(): $AudioStreamPlayer.play())
 
 
 func _input(event):
