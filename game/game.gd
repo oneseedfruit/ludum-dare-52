@@ -44,7 +44,9 @@ func _on_help_panel_gui_input(event):
 		$UI/HelpPanel.hide()
 
 
-func _on_instruction_gui_input(event):
+func _on_instruction_gui_input(event = "button"):
+	if event == "button":
+		$UI/HelpPanel.show()
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		$UI/HelpPanel.show()
 

@@ -1,9 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg2hxoe16obf6"]
+[gd_scene load_steps=12 format=3 uid="uid://dg2hxoe16obf6"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_d3mtx"]
 [ext_resource type="PackedScene" uid="uid://q30qn745r6jb" path="res://player/player.tscn" id="2_uwxw5"]
 [ext_resource type="Texture2D" uid="uid://cgl15lxmstn5g" path="res://UI/UI.png" id="3_p316b"]
 [ext_resource type="AudioStream" uid="uid://dqmrtposvu3tc" path="res://bgm/bgm.wav" id="4_41kxs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yn04j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cojo3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wkmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8bko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1y5dw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvbpn"]
 atlas = ExtResource("3_p316b")
@@ -61,10 +71,6 @@ layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -108.0
-offset_right = -192.0
-offset_bottom = -108.0
 grow_vertical = 0
 
 [node name="Instruction" type="RichTextLabel" parent="UI/BottomLeft"]
@@ -72,15 +78,32 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 212.0
-offset_top = 75.0
-offset_right = 372.0
-offset_bottom = 98.0
+offset_left = 20.0
+offset_top = -61.0
+offset_right = 180.0
+offset_bottom = -15.0
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "space or click/tap here for help"
 fit_content_height = true
+
+[node name="BottomLeft" type="Button" parent="UI/BottomLeft"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -100.0
+offset_right = 227.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yn04j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cojo3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1wkmn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_w8bko")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1y5dw")
+flat = true
+clip_text = true
 
 [node name="HelpPanel" type="Panel" parent="UI"]
 visible = false
@@ -232,4 +255,5 @@ autoplay = true
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="gui_input" from="UI/BottomLeft/Instruction" to="." method="_on_instruction_gui_input"]
+[connection signal="pressed" from="UI/BottomLeft/BottomLeft" to="." method="_on_instruction_gui_input"]
 [connection signal="gui_input" from="UI/HelpPanel" to="." method="_on_help_panel_gui_input"]
