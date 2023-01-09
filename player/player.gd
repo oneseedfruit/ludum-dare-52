@@ -49,7 +49,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not mMoving:
+	if not mMoving and not mIsDie:
 		for dir in mInputs:
 			if Input.is_action_pressed(dir):
 				_move_toward(dir)
