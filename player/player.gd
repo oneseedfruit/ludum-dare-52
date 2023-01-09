@@ -17,6 +17,7 @@ var mDirection: Vector2 = Vector2.ZERO
 var mMoving: bool = false
 var mTarget
 var mIsDie: bool = false
+var death_type: int = 4
 
 
 # Make player stop at target position
@@ -24,17 +25,21 @@ func stop_at(target) -> void:
 	mTarget = target
 
 
-func die() -> void:
+func die(death_type = 4) -> void:
 	mIsDie = true
+	self.death_type = death_type
 
 
 func _die() -> void:
-	$AudioDied.play()
-	$AnimationTree.get("parameters/playback").travel("playerfalling")
-	var tween = get_tree().create_tween()
-	tween.tween_property($AnimatedSprite2D, "scale", Vector2.ZERO, 1)
-	tween.parallel().tween_property($AnimatedSprite2D, "rotation", 360, 1)
-
+	if death_type == 3:
+		$AudioFall.play()
+		$AnimationTree.get("parameters/playback").travel("playerfalling")
+		var tween = get_tree().create_tween()
+		tween.tween_property($AnimatedSprite2D, "scale", Vector2.ZERO, 1)
+		tween.parallel().tween_property($AnimatedSprite2D, "rotation", 360, 1)
+	else:
+		$AudioDied.play()
+	
 
 func reset() -> void:
 	$AnimationTree.get("parameters/playback").travel("playerreset")

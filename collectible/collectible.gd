@@ -24,7 +24,7 @@ func _on_body_entered(body):
 			queue_free()
 		else:
 			body.stop_at(position)
-			body.die()
+			body.die($AnimatedSprite2D.frame)
 
 
 func setType(tileId):
