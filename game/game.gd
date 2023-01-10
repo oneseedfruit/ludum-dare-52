@@ -23,9 +23,17 @@ func _input(event):
 			LevelManager.initializeLevel()
 
 
+func _on_win_panel_gui_input(event):
+	if (event is InputEventScreenTouch and event.is_double_tap()) or (event is InputEventMouseButton and event.is_double_click()):
+		$UI/WinPanel.visible = false
+		mGameOver = false
+		LevelManager.initializeLevel()
+
 func game_over() -> void:
 	mGameOver = true
 	$UI/WinPanel.visible = true
+	$Player.reset_pose_only()
+	$Player.set_active(false)
 
 
 func _on_draw():
@@ -57,6 +65,10 @@ func update_ui():
 
 
 func complete_level():
+	# wait until monkey move to tile first
+	var timer = get_tree().create_timer(0.2)
+	await timer.timeout
+
 	var step = $Player.mStepUsed
 	$Player.reset_pose_only()
 	$Player.set_active(false)
@@ -89,10 +101,11 @@ func next_level():
 	var timer = get_tree().create_timer(0.2)
 	await timer.timeout
 
-	$Player.reset()
-	$Player.set_active(true)
+	if !mGameOver:
+		$Player.reset()
+		$Player.set_active(true)
+
 	set_process_input(true)
-	pass
 
 
 func restart_level():

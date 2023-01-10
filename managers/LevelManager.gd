@@ -23,7 +23,6 @@ func spawnLevel(level) -> void:
 
 	var parentNode = get_tree().root.get_node("Game")
 
-
 	var scene = mLevelPackScenes[level]
 
 	mCurrentLevelNode = scene.instantiate()

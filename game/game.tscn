@@ -196,7 +196,7 @@ offset_bottom = -154.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
-text = "Press space to restart"
+text = "Press space or double tap the screen to restart"
 
 [node name="LevelCompletedPanel" type="Panel" parent="UI"]
 visible = false
@@ -270,3 +270,4 @@ stream = ExtResource("5_c3mbp")
 [connection signal="gui_input" from="UI/BottomLeft/Instruction" to="." method="_on_instruction_gui_input"]
 [connection signal="pressed" from="UI/BottomLeft/BottomLeft" to="." method="_on_instruction_gui_input"]
 [connection signal="gui_input" from="UI/HelpPanel" to="." method="_on_help_panel_gui_input"]
+[connection signal="gui_input" from="UI/WinPanel" to="." method="_on_win_panel_gui_input"]
